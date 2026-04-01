@@ -1,6 +1,7 @@
 import {
   Component,
-  HostBinding,
+  ContentChild,
+  ElementRef,
   Input,
   ViewEncapsulation,
 } from '@angular/core';
@@ -18,4 +19,7 @@ import {
 })
 export class ControlComponent {
   @Input({ required: true }) label!: string;
+  @ContentChild('input') private control?: ElementRef<
+    HTMLInputElement | HTMLTextAreaElement
+  >;
 }
